@@ -4,7 +4,7 @@ Used - https://github.com/NafBZ/Stereo-Visual-Odometry as a reference implementa
 
 Different Modifications of the reference Stereo Visual Odometry algorithm are tested and compared using the KITTI Dataset
 
-#Insights
+# Insights
 ORB detector gives more positioning error as compared to SIFT for the sequence tested from KITTI - "03" 
 Bucketing before applying the feature detector does not seem to give better results
 
