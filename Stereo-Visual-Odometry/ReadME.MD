@@ -1,10 +1,17 @@
 # Stereo Visual Odometry
 
+Used - https://github.com/NafBZ/Stereo-Visual-Odometry as a reference implementation and then modified it. For licensing or so please contact the authors of the repo - https://github.com/NafBZ/Stereo-Visual-Odometry
+
+Different Modifications of the reference Stereo Visual Odometry algorithm are tested and compared using the KITTI Dataset
+
+#Insights
+ORB detector gives more positioning error as compared to SIFT for the sequence tested from KITTI - "03" 
+Bucketing before applying the feature detector does not seem to give better results
+
+# Implementation of the algorithm 
 ![GitHub Repo stars](https://img.shields.io/github/stars/NafBZ/Stereo-Visual-Odometry?style=for-the-badge&logo=github&labelColor=black&color=green)
 ![GitHub forks](https://img.shields.io/github/forks/NafBZ/Stereo-Visual-Odometry?style=for-the-badge&logo=github)
 [![Static Badge](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
-
-
 
 This repo contains a basic pipeline to implement stereo visual odometry for road vehicles. For experimental evaluation and validation KITTI dataset has been used. Thanks to [Prof. Dr. Ivan Marković](https://www.fer.unizg.hr/en/ivan.markovic) for his amazing lectures on computer vision topics where we learn the core concepts of feature extractions, feature matching, triangulation, motion estimation etc. Moreover, we find this youtube channel named [
 First Principles of Computer Vision](https://www.youtube.com/@firstprinciplesofcomputerv3258) extremely useful.
