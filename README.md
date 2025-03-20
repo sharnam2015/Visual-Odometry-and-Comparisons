@@ -1,4 +1,4 @@
-Implementing different modifications and algorithms for Visual Odometry and Comparing them 
+Implementing different modifications and algorithms for Visual Odometry and Comparing them [Work in Progress]
 
 ###
 Stereo Visual Odometry
