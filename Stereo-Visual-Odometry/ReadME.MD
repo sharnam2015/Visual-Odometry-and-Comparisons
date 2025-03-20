@@ -9,6 +9,7 @@ ORB detector gives more positioning error as compared to SIFT for the sequence t
 Bucketing before applying the feature detector does not seem to give better results
 
 # Implementation of the algorithm 
+Most of this implementation is borrowed from - https://github.com/NafBZ/Stereo-Visual-Odometry
 ![GitHub Repo stars](https://img.shields.io/github/stars/NafBZ/Stereo-Visual-Odometry?style=for-the-badge&logo=github&labelColor=black&color=green)
 ![GitHub forks](https://img.shields.io/github/forks/NafBZ/Stereo-Visual-Odometry?style=for-the-badge&logo=github)
 [![Static Badge](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
