@@ -1,0 +1,12 @@
+data:
+  sequence: '03'
+  main_path: '../datasets/sequences/{}/'
+  pose_path: '../datasets/poses/{}.txt'
+
+parameters:
+  rgb: False
+  rectified: True
+  detector: 'orb'
+  distance_threshold: 0.5
+  max_depth: 3000
+  subset: null
