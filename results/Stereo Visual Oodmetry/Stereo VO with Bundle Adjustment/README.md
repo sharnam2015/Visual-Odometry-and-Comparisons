@@ -1,6 +1,6 @@
 # Stereo Visual Odometry Results with Bundle Adjustment 
-## Test Sequence 03 on KITTI dataset - Sliding Window Size as 5 Frames (Without Marginalization)
-Huber Loss has been used along with a weak prior to eliminate outliers and ensure more smoothness
+## Test Sequence 03 on KITTI dataset - Sliding Window Size as 5 Frames (Without Marginalization) and without backeting, using ORB features
+Huber Loss has been used along with a weak prior to eliminate outliers and ensure more smoothness, maximum 800 orb features in the image set
 
 #### Trajectory and Ground Truth
 ![StereoVOwithBA](https://github.com/user-attachments/assets/4418d93f-8952-4c56-91b6-622ead7d639f)
