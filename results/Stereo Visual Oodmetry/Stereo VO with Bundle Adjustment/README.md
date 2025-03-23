@@ -1,5 +1,5 @@
 # Stereo Visual Odometry Results with Bundle Adjustment 
-## Test Sequence 03 on KITTI dataset - Sliding Window Size as 5 Frames 
+## Test Sequence 03 on KITTI dataset - Sliding Window Size as 5 Frames (Without Marginalization)
 Huber Loss has been used along with a weak prior to eliminate outliers and ensure more smoothness
 
 #### Trajectory and Ground Truth
