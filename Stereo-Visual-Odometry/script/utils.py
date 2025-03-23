@@ -150,13 +150,13 @@ def feature_extractor(image, detector=detector_name, mask=None):
 
     #keypoints, descriptors = create_detector.detectAndCompute(image, mask)
     # prev
-    num_rows, num_cols = 2, 2  # Adjust these values as needed
+    num_rows, num_cols = 1, 1  # Adjust these values as needed , diving the image into a grid of 2x2 
     h, w = image.shape
     bucket_height = h // num_rows
     bucket_width = w // num_cols
 
     # Initialize ORB detector (adjust nfeatures and other parameters as required).
-    orb = cv2.ORB_create(nfeatures=100)
+    orb = cv2.ORB_create(nfeatures=800)
 
     # Lists to accumulate keypoints and descriptors.
     all_keypoints = []
@@ -209,7 +209,7 @@ def feature_matching(first_descriptor, second_descriptor, detector=detector_name
         feature_matcher = cv2.BFMatcher_create(
             cv2.NORM_L2, crossCheck=False)
     matches = feature_matcher.knnMatch(
-        first_descriptor, second_descriptor, k=k)
+        first_descriptor, second_descriptor, k=k) # keeping the best 2 matches for each keypoint in order to later remove the more confusing matches
 
     # Filtering out the weak features using a ratio test between the first best match and second best match
     filtered_matches = []
@@ -242,7 +242,7 @@ def motion_estimation(matches, firstImage_keypoints, secondImage_keypoints, intr
     """
     rotation_matrix = np.eye(3)
     translation_vector = np.zeros((3, 1))
-
+    
     # Only considering keypoints that are matched for two sequential frames
     image1_points = np.float32(
         [firstImage_keypoints[m.queryIdx].pt for m in matches])
@@ -273,10 +273,12 @@ def motion_estimation(matches, firstImage_keypoints, secondImage_keypoints, intr
         # Stacking all the 3D (x,y,z) points
         points_3D = np.vstack([points_3D, np.array([x, y, z])])
     
-    nr, nc = points_3D.shape
+    
     # Deleting the false depth points
     image1_points = np.delete(image1_points, outliers, 0)
     image2_points = np.delete(image2_points, outliers, 0)
+    nr, nc = points_3D.shape
+    status = 1
 
     print("Image Points Size\n",nr)
     if nr>3:
@@ -286,8 +288,8 @@ def motion_estimation(matches, firstImage_keypoints, secondImage_keypoints, intr
 
         rotation_matrix = cv2.Rodrigues(rvec)[0]
     else:
-        rotation_matrix = -10000*rotation_matrix
+        status = -1
 
-    return rotation_matrix, translation_vector, image1_points, image2_points
+    return rotation_matrix, translation_vector, image1_points, image2_points, status
 
 ######################################### Motion Estimation ####################################
